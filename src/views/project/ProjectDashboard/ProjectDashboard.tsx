@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import reducer, {
     getProjectDashboardData,
     useAppDispatch,
@@ -8,10 +8,7 @@ import { injectReducer } from '@/store'
 import Loading from '@/components/shared/Loading'
 import ProjectDashboardHeader from './components/ProjectDashboardHeader'
 import TaskOverview from './components/TaskOverview'
-import MyTasks from './components/MyTasks'
-import Projects from './components/Projects'
 import Schedule from './components/Schedule'
-import Activities from './components/Activities'
 
 injectReducer('projectDashboard', reducer)
 
@@ -21,11 +18,16 @@ const ProjectDashboard = () => {
     const dashboardData = useAppSelector(
         (state) => state.projectDashboard.data.dashboardData
     )
+
+    const [selectedDate, setSelectedDate] = useState<Date | null>(null);
     const loading = useAppSelector(
         (state) => state.projectDashboard.data.loading
     )
 
     useEffect(() => {
+
+        setSelectedDate(new Date('2020-02-02'));
+
         fetchData()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
@@ -38,21 +40,22 @@ const ProjectDashboard = () => {
         <div className="flex flex-col gap-4 h-full">
             <Loading loading={loading}>
                 <ProjectDashboardHeader
-                    userName={dashboardData?.userName}
-                    taskCount={dashboardData?.taskCount}
                 />
                 <div className="flex flex-col xl:flex-row gap-4">
                     <div className="flex flex-col gap-4 flex-auto">
                         <TaskOverview
-                            data={dashboardData?.projectOverviewData}
+                            // data={dashboardData?.projectOverviewData}
+
+                            selectedDate={selectedDate}
                         />
-                        <MyTasks data={dashboardData?.myTasksData} />
-                        <Projects data={dashboardData?.projectsData} />
                     </div>
                     <div className="flex flex-col gap-4">
                         <div className="xl:w-[380px]">
-                            <Schedule data={dashboardData?.scheduleData} />
-                            <Activities data={dashboardData?.activitiesData} />
+                            <Schedule
+                                data={dashboardData?.scheduleData}
+                                selectedDate={selectedDate}
+                                setSelectedDate={setSelectedDate}
+                            />
                         </div>
                     </div>
                 </div>

@@ -5,7 +5,7 @@ const TypeScript = () => {
         <>
             <p>
                 This guide will walk you through the process of configuring TypeScript settings and leveraging its 
-                features in Elsatr. Developed entirely in TypeScript, Elstar allowing you to write type-safe and 
+                features in Elsatr. Developed entirely in TypeScript, enkhjin allowing you to write type-safe and 
                 scalable code building modern web applications with ease.
             </p>
             <div className="mt-10" id="ts-config">

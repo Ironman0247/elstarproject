@@ -34,7 +34,7 @@ const Categories = (props: { data: Category[] }) => {
                     onClick={() => onCategoryClick(cat.name)}
                 >
                     <div className="mb-4 flex justify-center">
-                        <CategoryIcon type={cat.id} />
+                        {/* <CategoryIcon type={cat.id} /> */}
                     </div>
                     <div className="text-center">
                         <h5 className="mb-1">{cat.name}</h5>

@@ -21,7 +21,7 @@ type ActivityProps = {
 const Activity = ({ data = [] }: ActivityProps) => {
     return (
         <Card className="mb-4">
-            <h5 className="mb-4">Activity</h5>
+            <h5 className="mb-4">Захиалгын цаг</h5>
             {data.map((activity, i) => (
                 <div
                     key={activity.date}

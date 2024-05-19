@@ -276,12 +276,12 @@ const _Notification = ({ className }: { className?: string }) => {
             </div>
             <Dropdown.Item variant="header">
                 <div className="flex justify-center border-t border-gray-200 dark:border-gray-600 px-4 py-2">
-                    <Link
+                    {/* <Link
                         to="/app/account/activity-log"
                         className="font-semibold cursor-pointer p-2 px-3 text-gray-600 hover:text-gray-900 dark:text-gray-200 dark:hover:text-white"
                     >
                         View All Activity
-                    </Link>
+                    </Link> */}
                 </div>
             </Dropdown.Item>
         </Dropdown>

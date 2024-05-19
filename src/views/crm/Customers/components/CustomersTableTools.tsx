@@ -56,13 +56,13 @@ const CustomersTableTools = () => {
                     ref={inputRef}
                     onInputChange={handleInputChange}
                 />
-                <CustomerTableFilter />
+                {/* <CustomerTableFilter /> */}
             </div>
-            <div className="mb-4">
+            {/* <div className="mb-4">
                 <Button size="sm" onClick={onClearAll}>
                     Clear All
                 </Button>
-            </div>
+            </div> */}
         </div>
     )
 }

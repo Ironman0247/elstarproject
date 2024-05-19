@@ -50,7 +50,7 @@ const ProductTableSearch = () => {
             ref={searchInput}
             className="max-w-md md:w-52 md:mb-0 mb-4"
             size="sm"
-            placeholder="Search product"
+            placeholder="Үйлчилгээ хайх"
             prefix={<HiOutlineSearch className="text-lg" />}
             onChange={onEdit}
         />

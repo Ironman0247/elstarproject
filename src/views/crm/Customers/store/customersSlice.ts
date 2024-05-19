@@ -46,6 +46,7 @@ export type Customer = {
     id: string
     name: string
     email: string
+    phoneNumb: number
     img: string
     role: string
     lastOnline: number

@@ -44,14 +44,14 @@ const LoginHistoryIcon = ({ type }: { type: string }) => {
 }
 
 const validationSchema = Yup.object().shape({
-    password: Yup.string().required('Password Required'),
+    password: Yup.string().required('Нууц үгээ оруулна уу'),
     newPassword: Yup.string()
-        .required('Enter your new password')
-        .min(8, 'Too Short!')
-        .matches(/^[A-Za-z0-9_-]*$/, 'Only Letters & Numbers Allowed'),
+        .required('Шинэ нууц үгээ оруулна уу')
+        .min(8, 'Хэтэрхий богино байна!')
+        .matches(/^[A-Za-z0-9_-]*$/, 'Зөвхөн үсэг болон тоо оруулна уу'),
     confirmNewPassword: Yup.string().oneOf(
         [Yup.ref('newPassword'), ''],
-        'Password not match'
+        'Нууц үг таарахгүй байна.'
     ),
 })
 
@@ -60,7 +60,7 @@ const Password = ({ data }: { data?: LoginHistory[] }) => {
         values: PasswordFormModel,
         setSubmitting: (isSubmitting: boolean) => void
     ) => {
-        toast.push(<Notification title={'Password updated'} type="success" />, {
+        toast.push(<Notification title={'Нууц үг шинэчилэгдлээ'} type="success" />, {
             placement: 'top-center',
         })
         setSubmitting(false)
@@ -89,45 +89,45 @@ const Password = ({ data }: { data?: LoginHistory[] }) => {
                         <Form>
                             <FormContainer>
                                 <FormDesription
-                                    title="Password"
-                                    desc="Enter your current & new password to reset your password"
+                                    title="Нууц үг"
+                                    desc="Нууц үгээ шинэчлэхийн тулд одоогийн болон шинэ нууц үгээ оруулна уу"
                                 />
                                 <FormRow
                                     name="password"
-                                    label="Current Password"
+                                    label="Одоогийн нууц үг"
                                     {...validatorProps}
                                 >
                                     <Field
                                         type="password"
                                         autoComplete="off"
                                         name="password"
-                                        placeholder="Current Password"
+                                        placeholder="Одоогийн нууц үг"
                                         component={Input}
                                     />
                                 </FormRow>
                                 <FormRow
                                     name="newPassword"
-                                    label="New Password"
+                                    label="Шинэ нууц үг"
                                     {...validatorProps}
                                 >
                                     <Field
                                         type="password"
                                         autoComplete="off"
                                         name="newPassword"
-                                        placeholder="New Password"
+                                        placeholder="Шинэ нууц үг"
                                         component={Input}
                                     />
                                 </FormRow>
                                 <FormRow
                                     name="confirmNewPassword"
-                                    label="Confirm Password"
+                                    label="Нууц үгээ баталгаажуулах"
                                     {...validatorProps}
                                 >
                                     <Field
                                         type="password"
                                         autoComplete="off"
                                         name="confirmNewPassword"
-                                        placeholder="Confirm Password"
+                                        placeholder="Нууц үгээ баталгаажуулах"
                                         component={Input}
                                     />
                                 </FormRow>
@@ -137,7 +137,7 @@ const Password = ({ data }: { data?: LoginHistory[] }) => {
                                         type="button"
                                         onClick={() => resetForm()}
                                     >
-                                        Reset
+                                        Бүх мэдээллийг арилгах
                                     </Button>
                                     <Button
                                         variant="solid"
@@ -145,8 +145,8 @@ const Password = ({ data }: { data?: LoginHistory[] }) => {
                                         type="submit"
                                     >
                                         {isSubmitting
-                                            ? 'Updating'
-                                            : 'Update Password'}
+                                            ? 'Шинэчилж байна'
+                                            : 'Нууц үг шинэчилэх'}
                                     </Button>
                                 </div>
                             </FormContainer>
@@ -154,53 +154,6 @@ const Password = ({ data }: { data?: LoginHistory[] }) => {
                     )
                 }}
             </Formik>
-            <div className="mt-6">
-                <FormDesription
-                    title="Where you're signed in"
-                    desc="You're signed in to your account on these devices."
-                />
-                {data && (
-                    <div className="rounded-lg border border-gray-200 dark:border-gray-600 mt-6">
-                        {data.map((log, index) => (
-                            <div
-                                key={log.deviceName}
-                                className={classNames(
-                                    'flex items-center px-4 py-6',
-                                    !isLastChild(data, index) &&
-                                        'border-b border-gray-200 dark:border-gray-600'
-                                )}
-                            >
-                                <div className="flex items-center">
-                                    <div className="text-3xl">
-                                        <LoginHistoryIcon type={log.type} />
-                                    </div>
-                                    <div className="ml-3 rtl:mr-3">
-                                        <div className="flex items-center">
-                                            <div className="text-gray-900 dark:text-gray-100 font-semibold">
-                                                {log.deviceName}
-                                            </div>
-                                            {index === 0 && (
-                                                <Tag className="bg-emerald-100 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-100 rounded-md border-0 mx-2">
-                                                    <span className="capitalize">
-                                                        {' '}
-                                                        Current{' '}
-                                                    </span>
-                                                </Tag>
-                                            )}
-                                        </div>
-                                        <span>
-                                            {log.location} •{' '}
-                                            {dayjs
-                                                .unix(log.time)
-                                                .format('DD-MMM-YYYY, hh:mm A')}
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                )}
-            </div>
         </>
     )
 }

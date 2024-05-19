@@ -47,23 +47,16 @@ const { Control } = components
 
 const validationSchema = Yup.object().shape({
     name: Yup.string()
-        .min(3, 'Too Short!')
-        .max(12, 'Too Long!')
-        .required('User Name Required'),
-    email: Yup.string().email('Invalid email').required('Email Required'),
+        .min(3, 'Хэтэрхий богино байна!')
+        .max(12, 'Хэтэрхий урт байна!')
+        .required('Нэвтрэх нэрээ оруулна уу'),
+    email: Yup.string().email('Имэйлээ зөв оруулна уу').required('Имэйлээ оруулна уу'),
     title: Yup.string(),
     avatar: Yup.string(),
     lang: Yup.string(),
     timeZone: Yup.string(),
     syncData: Yup.bool(),
 })
-
-const langOptions: LanguageOption[] = [
-    { value: 'en', label: 'English (US)', imgPath: '/img/countries/us.png' },
-    { value: 'ch', label: '中文', imgPath: '/img/countries/cn.png' },
-    { value: 'jp', label: '日本语', imgPath: '/img/countries/jp.png' },
-    { value: 'fr', label: 'French', imgPath: '/img/countries/fr.png' },
-]
 
 const CustomSelectOption = ({
     innerProps,
@@ -133,7 +126,7 @@ const Profile = ({
         setSubmitting: (isSubmitting: boolean) => void
     ) => {
         console.log('values', values)
-        toast.push(<Notification title={'Profile updated'} type="success" />, {
+        toast.push(<Notification title={'Мэдээлэл шинэчилэгдлээ'} type="success" />, {
             placement: 'top-center',
         })
         setSubmitting(false)
@@ -157,19 +150,19 @@ const Profile = ({
                     <Form>
                         <FormContainer>
                             <FormDesription
-                                title="General"
-                                desc="Basic info, like your name and address that will displayed in public"
+                                title="Ерөнхий мэдээлэл"
+                                desc="Таны нэр, хаяг зэрэг олон нийтэд харагдах үндсэн мэдээлэл"
                             />
                             <FormRow
                                 name="name"
-                                label="Name"
+                                label="Нэр"
                                 {...validatorProps}
                             >
                                 <Field
                                     type="text"
                                     autoComplete="off"
-                                    name="name"
-                                    placeholder="Name"
+                                    name="Нэр"
+                                    placeholder="Нэр"
                                     component={Input}
                                     prefix={
                                         <HiOutlineUserCircle className="text-xl" />
@@ -178,14 +171,14 @@ const Profile = ({
                             </FormRow>
                             <FormRow
                                 name="email"
-                                label="Email"
+                                label="Имэйл"
                                 {...validatorProps}
                             >
                                 <Field
                                     type="email"
                                     autoComplete="off"
-                                    name="email"
-                                    placeholder="Email"
+                                    name="Имэйл"
+                                    placeholder="Имэйл"
                                     component={Input}
                                     prefix={
                                         <HiOutlineMail className="text-xl" />
@@ -194,7 +187,7 @@ const Profile = ({
                             </FormRow>
                             <FormRow
                                 name="avatar"
-                                label="Avatar"
+                                label="Зураг"
                                 {...validatorProps}
                             >
                                 <Field name="avatar">
@@ -222,13 +215,13 @@ const Profile = ({
                                                     )
                                                 }
                                             >
-                                                <Avatar
+                                                {/* <Avatar
                                                     className="border-2 border-white dark:border-gray-800 shadow-lg"
                                                     size={60}
                                                     shape="circle"
                                                     icon={<HiOutlineUser />}
                                                     {...avatarProps}
-                                                />
+                                                /> */}
                                             </Upload>
                                         )
                                     }}
@@ -236,80 +229,20 @@ const Profile = ({
                             </FormRow>
                             <FormRow
                                 name="title"
-                                label="Title"
+                                label="Мэргэжил"
                                 {...validatorProps}
                                 border={false}
                             >
                                 <Field
                                     type="text"
                                     autoComplete="off"
-                                    name="title"
-                                    placeholder="Title"
+                                    name="Мэргэжил"
+                                    placeholder="Мэргэжил"
                                     component={Input}
                                     prefix={
                                         <HiOutlineBriefcase className="text-xl" />
                                     }
                                 />
-                            </FormRow>
-                            <FormDesription
-                                className="mt-8"
-                                title="Preferences"
-                                desc="Your personalized preference displayed in your account"
-                            />
-                            <FormRow
-                                name="lang"
-                                label="Language"
-                                {...validatorProps}
-                            >
-                                <Field name="lang">
-                                    {({ field, form }: FieldProps) => (
-                                        <Select<LanguageOption>
-                                            field={field}
-                                            form={form}
-                                            options={langOptions}
-                                            components={{
-                                                Option: CustomSelectOption,
-                                                Control: CustomControl,
-                                            }}
-                                            value={langOptions.filter(
-                                                (option) =>
-                                                    option.value ===
-                                                    values?.lang
-                                            )}
-                                            onChange={(option) =>
-                                                form.setFieldValue(
-                                                    field.name,
-                                                    option?.value
-                                                )
-                                            }
-                                        />
-                                    )}
-                                </Field>
-                            </FormRow>
-                            <FormRow
-                                name="timeZone"
-                                label="Time Zone"
-                                {...validatorProps}
-                            >
-                                <Field
-                                    readOnly
-                                    type="text"
-                                    autoComplete="off"
-                                    name="timeZone"
-                                    placeholder="Time Zone"
-                                    component={Input}
-                                    prefix={
-                                        <HiOutlineGlobeAlt className="text-xl" />
-                                    }
-                                />
-                            </FormRow>
-                            <FormRow
-                                name="syncData"
-                                label="Sync Data"
-                                {...validatorProps}
-                                border={false}
-                            >
-                                <Field name="syncData" component={Switcher} />
                             </FormRow>
                             <div className="mt-4 ltr:text-right">
                                 <Button
@@ -317,14 +250,14 @@ const Profile = ({
                                     type="button"
                                     onClick={() => resetForm()}
                                 >
-                                    Reset
+                                    Бүх мэдээллийг арилгах
                                 </Button>
                                 <Button
                                     variant="solid"
                                     loading={isSubmitting}
                                     type="submit"
                                 >
-                                    {isSubmitting ? 'Updating' : 'Update'}
+                                    {isSubmitting ? 'Шинэчилж байна' : 'Шинэчилэх'}
                                 </Button>
                             </div>
                         </FormContainer>

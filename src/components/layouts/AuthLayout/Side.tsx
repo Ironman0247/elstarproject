@@ -17,30 +17,29 @@ const Side = ({ children, content, ...rest }: SideProps) => {
                     backgroundImage: `url('/img/others/auth-side-bg.jpg')`,
                 }}
             >
-                <Logo mode="dark" />
+                {/* <Logo mode="dark" /> */}
                 <div>
                     <div className="mb-6 flex items-center gap-4">
-                        <Avatar
+                        {/* <Avatar
                             className="border-2 border-white"
                             shape="circle"
                             src="/img/avatars/thumb-10.jpg"
-                        />
+                        /> */}
                         <div className="text-white">
                             <div className="font-semibold text-base">
-                                Brittany Hale
+                                {/* Brittany Hale */}
                             </div>
-                            <span className="opacity-80">CTO, Onward</span>
+                            {/* <span className="opacity-80"></span> */}
                         </div>
                     </div>
                     <p className="text-lg text-white opacity-80">
-                        Elstar comes with a complete set of UI components
-                        crafted with Tailwind CSS, it fulfilled most of the use
-                        case to create modern and beautiful UI and application
+                        Хэрэглэгчдэд зориулсан
+                        цаг захиалгын Website
                     </p>
                 </div>
                 <span className="text-white">
-                    Copyright &copy; {`${new Date().getFullYear()}`}{' '}
-                    <span className="font-semibold">{`${APP_NAME}`}</span>{' '}
+                     {/* {`${new Date().getFullYear()}`}{' '} */}
+                    {/* <span className="font-semibold">{`${APP_NAME}`}</span>{' '} */}
                 </span>
             </div>
             <div className="col-span-2 flex flex-col justify-center items-center bg-white dark:bg-gray-800">
@@ -48,8 +47,8 @@ const Side = ({ children, content, ...rest }: SideProps) => {
                     <div className="mb-8">{content}</div>
                     {children
                         ? cloneElement(children as React.ReactElement, {
-                              ...rest,
-                          })
+                            ...rest,
+                        })
                         : null}
                 </div>
             </div>

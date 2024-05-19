@@ -8,6 +8,7 @@ import MobileNav from '@/components/template/MobileNav'
 import Search from '@/components/template/Search'
 import SideNav from '@/components/template/SideNav'
 import View from '@/views'
+import ModeSwitcher from '../template/ThemeConfigurator/ModeSwitcher'
 
 const HeaderActionsStart = () => {
     return (
@@ -25,6 +26,7 @@ const HeaderActionsEnd = () => {
             <LanguageSelector />
             <Notification />
             <SidePanel />
+            <ModeSwitcher />
             <UserDropdown hoverable={false} />
         </>
     )

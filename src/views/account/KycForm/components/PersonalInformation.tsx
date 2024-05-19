@@ -38,9 +38,9 @@ type PersonalInformationProps = {
 const { SingleValue } = components
 
 const genderOptions = [
-    { label: 'Male', value: 'M' },
-    { label: 'Female', value: 'F' },
-    { label: 'Others', value: 'O' },
+    { label: 'Эр', value: 'M' },
+    { label: 'Эм', value: 'F' },
+    { label: 'Бусад', value: 'O' },
 ]
 
 const NumberInput = (props: InputProps) => {
@@ -99,15 +99,13 @@ const PhoneControl = (props: SingleValueProps<CountryOption>) => {
 }
 
 const validationSchema = Yup.object().shape({
-    firstName: Yup.string().required('First Name Required'),
-    lastName: Yup.string().required('Last Name Required'),
-    email: Yup.string().email('Invalid email').required('Email Required'),
-    nationality: Yup.string().required('Please select your nationality'),
-    phoneNumber: Yup.string().required('Please enter your phone number'),
-    dob: Yup.string().required('Please enter your date of birth'),
-    gender: Yup.string().required('Please enter your gender'),
-    maritalStatus: Yup.string().required('Please enter your marital status'),
-    dialCode: Yup.string().required('Please select dial code'),
+    firstName: Yup.string().required('Нэрээ оруулна уу'),
+    lastName: Yup.string().required('Овогоо оруулна уу'),
+    email: Yup.string().email('Буруу имэйл').required('Имэйлээ оруулна уу'),
+    phoneNumber: Yup.string().required('Утасны дугаараа оруулна уу'),
+    dob: Yup.string().required('Төрсөн он сар өдрөө оруулна уу'),
+    gender: Yup.string().required('Хүйсээ оруулна уу'),
+    dialCode: Yup.string().required('Утасны код оо оруулна уу'),
 })
 
 const PersonalInformation = ({
@@ -136,8 +134,7 @@ const PersonalInformation = ({
     return (
         <>
             <div className="mb-8">
-                <h3 className="mb-2">Personal Information</h3>
-                <p>Basic information for an account opening</p>
+                <h3 className="mb-2">Нэмэлт мэдээлэл</h3>
             </div>
             <Formik
                 initialValues={data}
@@ -156,7 +153,7 @@ const PersonalInformation = ({
                             <FormContainer>
                                 <div className="md:grid grid-cols-2 gap-4">
                                     <FormItem
-                                        label="First Name"
+                                        label="Нэр"
                                         invalid={
                                             errors.firstName &&
                                             touched.firstName
@@ -167,12 +164,12 @@ const PersonalInformation = ({
                                             type="text"
                                             autoComplete="off"
                                             name="firstName"
-                                            placeholder="First Name"
+                                            placeholder="Нэр"
                                             component={Input}
                                         />
                                     </FormItem>
                                     <FormItem
-                                        label="Last Name"
+                                        label="Овог"
                                         invalid={
                                             errors.lastName && touched.lastName
                                         }
@@ -182,7 +179,7 @@ const PersonalInformation = ({
                                             type="text"
                                             autoComplete="off"
                                             name="lastName"
-                                            placeholder="Last Name"
+                                            placeholder="Овог"
                                             component={Input}
                                         />
                                     </FormItem>
@@ -196,13 +193,13 @@ const PersonalInformation = ({
                                         type="email"
                                         autoComplete="off"
                                         name="email"
-                                        placeholder="Email"
+                                        placeholder="Имэйл"
                                         component={Input}
                                     />
                                 </FormItem>
                                 <div className="md:grid grid-cols-2 gap-4">
                                     <FormItem
-                                        label="Gender"
+                                        label="Хүйс"
                                         invalid={
                                             errors.gender && touched.gender
                                         }
@@ -211,7 +208,7 @@ const PersonalInformation = ({
                                         <Field name="gender">
                                             {({ field, form }: FieldProps) => (
                                                 <Select
-                                                    placeholder="Gender"
+                                                    placeholder="Хүйс"
                                                     field={field}
                                                     form={form}
                                                     options={genderOptions}
@@ -230,77 +227,17 @@ const PersonalInformation = ({
                                             )}
                                         </Field>
                                     </FormItem>
-                                    <FormItem
-                                        label="Marital Status"
-                                        invalid={
-                                            errors.maritalStatus &&
-                                            touched.maritalStatus
-                                        }
-                                        errorMessage={errors.maritalStatus}
-                                    >
-                                        <Field name="maritalStatus">
-                                            {({ field, form }: FieldProps) => (
-                                                <Select
-                                                    placeholder="Marital Status"
-                                                    field={field}
-                                                    form={form}
-                                                    options={statusOptions}
-                                                    value={statusOptions.filter(
-                                                        (status) =>
-                                                            status.value ===
-                                                            values.maritalStatus
-                                                    )}
-                                                    onChange={(status) =>
-                                                        form.setFieldValue(
-                                                            field.name,
-                                                            status?.value
-                                                        )
-                                                    }
-                                                />
-                                            )}
-                                        </Field>
-                                    </FormItem>
                                 </div>
-                                <FormItem
-                                    label="Nationality"
-                                    invalid={
-                                        errors.nationality &&
-                                        touched.nationality
-                                    }
-                                    errorMessage={errors.nationality}
-                                >
-                                    <Field name="nationality">
-                                        {({ field, form }: FieldProps) => (
-                                            <Select
-                                                placeholder="Nationality"
-                                                field={field}
-                                                form={form}
-                                                options={countryList}
-                                                value={countryList.filter(
-                                                    (country) =>
-                                                        country.value ===
-                                                        values.nationality
-                                                )}
-                                                onChange={(country) =>
-                                                    form.setFieldValue(
-                                                        field.name,
-                                                        country?.value
-                                                    )
-                                                }
-                                            />
-                                        )}
-                                    </Field>
-                                </FormItem>
                                 <div className="md:grid grid-cols-2 gap-4">
                                     <FormItem
-                                        label="Phone Number"
+                                        label="Утасны дугаар"
                                         invalid={
                                             (errors.dialCode &&
                                                 touched.dialCode) ||
                                             (errors.phoneNumber &&
                                                 touched.phoneNumber)
                                         }
-                                        errorMessage="Please enter your phone number"
+                                        errorMessage="Утасны дугаараа оруулна уу"
                                     >
                                         <InputGroup>
                                             <Field name="dialCode">
@@ -310,7 +247,7 @@ const PersonalInformation = ({
                                                 }: FieldProps) => (
                                                     <Select<CountryOption>
                                                         className="min-w-[130px]"
-                                                        placeholder="Dial Code"
+                                                        placeholder="Код"
                                                         components={{
                                                             Option: PhoneSelectOption,
                                                             SingleValue:
@@ -345,7 +282,7 @@ const PersonalInformation = ({
                                                             customInput={
                                                                 NumberInput as ComponentType
                                                             }
-                                                            placeholder="Phone Number"
+                                                            placeholder="Утасны дугаар"
                                                             onValueChange={(
                                                                 e
                                                             ) => {
@@ -361,7 +298,7 @@ const PersonalInformation = ({
                                         </InputGroup>
                                     </FormItem>
                                     <FormItem
-                                        label="Date of Birth"
+                                        label="Төрсөн он сар өдөр"
                                         invalid={errors.dob && touched.dob}
                                         errorMessage={errors.dob}
                                     >
@@ -391,8 +328,8 @@ const PersonalInformation = ({
                                         type="submit"
                                     >
                                         {currentStepStatus === 'complete'
-                                            ? 'Save'
-                                            : 'Next'}
+                                            ? 'Хадгалах'
+                                            : 'Дараагийн'}
                                     </Button>
                                 </div>
                             </FormContainer>

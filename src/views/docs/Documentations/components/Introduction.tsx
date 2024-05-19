@@ -3,20 +3,20 @@ const Introduction = () => {
         <>
             <div id="introduction" className="mb-8">
                 <p>
-                    Elstar is a complete React admin template with developer
+                    enkhjin is a complete React admin template with developer
                     experience friendly & highly scalable, it comes with a
                     complete set of UI components meticulously crafted with
                     Tailwind CSS & React Hooks, it fulfilled most of the use
                     case to create modern and beautiful UI and application
                 </p>
                 <p>
-                    Elstar offers several themes and layout options that allow
+                    enkhjin offers several themes and layout options that allow
                     you to update the style of your application in no time, it
                     also supports dark theme & multiple locales including RTL
                     languages.
                 </p>
                 <p>
-                    Elstar has built-in working functionality pages, routing
+                    enkhjin has built-in working functionality pages, routing
                     configuration, app configuration and auth features. It also
                     includes a lot of reusable bottom & upper-level components
                     which let you kickstart any project quickly.
@@ -25,7 +25,7 @@ const Introduction = () => {
             <div id="coreLibrary">
                 <h4>Core libraries used</h4>
                 <p>
-                    Here is a list of some core libraries that we use in Elstar:
+                    Here is a list of some core libraries that we use in enkhjin:
                 </p>
                 <ul>
                     <li>

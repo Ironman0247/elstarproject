@@ -22,14 +22,14 @@ type SignUpFormSchema = {
 }
 
 const validationSchema = Yup.object().shape({
-    userName: Yup.string().required('Please enter your user name'),
+    userName: Yup.string().required('Нэвтрэх нэрээ оруулна уу'),
     email: Yup.string()
-        .email('Invalid email')
-        .required('Please enter your email'),
-    password: Yup.string().required('Please enter your password'),
+        .email('Та зөв имэйл оруулна уу')
+        .required('Имэйл хаягаа оруулна уу'),
+    password: Yup.string().required('Нууц үгээ оруулна уу'),
     confirmPassword: Yup.string().oneOf(
         [Yup.ref('password')],
-        'Your passwords do not match'
+        'Нууц үг таарахгүй байна'
     ),
 })
 
@@ -64,10 +64,10 @@ const SignUpForm = (props: SignUpFormProps) => {
             )}
             <Formik
                 initialValues={{
-                    userName: 'admin1',
-                    password: '123Qwe1',
-                    confirmPassword: '123Qwe1',
-                    email: 'test@testmail.com',
+                    userName: '',
+                    password: '',
+                    confirmPassword: '',
+                    email: '',
                 }}
                 validationSchema={validationSchema}
                 onSubmit={(values, { setSubmitting }) => {
@@ -82,20 +82,7 @@ const SignUpForm = (props: SignUpFormProps) => {
                     <Form>
                         <FormContainer>
                             <FormItem
-                                label="User Name"
-                                invalid={errors.userName && touched.userName}
-                                errorMessage={errors.userName}
-                            >
-                                <Field
-                                    type="text"
-                                    autoComplete="off"
-                                    name="userName"
-                                    placeholder="User Name"
-                                    component={Input}
-                                />
-                            </FormItem>
-                            <FormItem
-                                label="Email"
+                                label="Имэйл"
                                 invalid={errors.email && touched.email}
                                 errorMessage={errors.email}
                             >
@@ -103,24 +90,24 @@ const SignUpForm = (props: SignUpFormProps) => {
                                     type="email"
                                     autoComplete="off"
                                     name="email"
-                                    placeholder="Email"
+                                    placeholder="Имэйл"
                                     component={Input}
                                 />
                             </FormItem>
                             <FormItem
-                                label="Password"
+                                label="Нууц үг"
                                 invalid={errors.password && touched.password}
                                 errorMessage={errors.password}
                             >
                                 <Field
                                     autoComplete="off"
                                     name="password"
-                                    placeholder="Password"
+                                    placeholder="Нууц үг"
                                     component={PasswordInput}
                                 />
                             </FormItem>
                             <FormItem
-                                label="Confirm Password"
+                                label="Нууц үгээ дахин оруулна уу"
                                 invalid={
                                     errors.confirmPassword &&
                                     touched.confirmPassword
@@ -130,7 +117,7 @@ const SignUpForm = (props: SignUpFormProps) => {
                                 <Field
                                     autoComplete="off"
                                     name="confirmPassword"
-                                    placeholder="Confirm Password"
+                                    placeholder="Нууц үгээ дахин оруулна уу"
                                     component={PasswordInput}
                                 />
                             </FormItem>
@@ -141,12 +128,12 @@ const SignUpForm = (props: SignUpFormProps) => {
                                 type="submit"
                             >
                                 {isSubmitting
-                                    ? 'Creating Account...'
-                                    : 'Sign Up'}
+                                    ? 'Бүртгэж байна...'
+                                    : 'Бүртгүүлэх'}
                             </Button>
                             <div className="mt-4 text-center">
-                                <span>Already have an account? </span>
-                                <ActionLink to={signInUrl}>Sign in</ActionLink>
+                                <span>Бүртгэлтэй юу? </span>
+                                <ActionLink to={signInUrl}>Нэвтрэх</ActionLink>
                             </div>
                         </FormContainer>
                     </Form>

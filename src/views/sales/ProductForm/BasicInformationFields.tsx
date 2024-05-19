@@ -20,10 +20,10 @@ const BasicInformationFields = (props: BasicInformationFields) => {
 
     return (
         <AdaptableCard divider className="mb-4">
-            <h5>Basic Information</h5>
-            <p className="mb-6">Section to config basic product information</p>
+            <h5>Ерөнхий мэдээлэл</h5>
+            <p className="mb-6"></p>
             <FormItem
-                label="Product Name"
+                label="Үйлчилгээний нэр"
                 invalid={(errors.name && touched.name) as boolean}
                 errorMessage={errors.name}
             >
@@ -36,7 +36,7 @@ const BasicInformationFields = (props: BasicInformationFields) => {
                 />
             </FormItem>
             <FormItem
-                label="Code"
+                label="Үйлчилгээний код"
                 invalid={(errors.productCode && touched.productCode) as boolean}
                 errorMessage={errors.productCode}
             >
@@ -49,7 +49,7 @@ const BasicInformationFields = (props: BasicInformationFields) => {
                 />
             </FormItem>
             <FormItem
-                label="Description"
+                label="Тайлбар"
                 labelClass="!justify-start"
                 invalid={(errors.description && touched.description) as boolean}
                 errorMessage={errors.description}

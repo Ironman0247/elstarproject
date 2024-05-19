@@ -12,7 +12,7 @@ import View from '@/views'
 const HeaderActionsStart = () => {
     return (
         <>
-            <HeaderLogo />
+            {/* <HeaderLogo /> */}
             <MobileNav />
         </>
     )

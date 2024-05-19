@@ -97,11 +97,11 @@ const StackedSideNavMini = (props: StackedSideNavMiniProps) => {
 
     return (
         <div {...rest}>
-            <Logo
+            {/* <Logo
                 mode={logoMode()}
                 type="streamline"
                 className={SIDE_NAV_CONTENT_GUTTER}
-            />
+            /> */}
             <ScrollBar autoHide direction={direction}>
                 <Menu
                     className="px-4 pb-4"

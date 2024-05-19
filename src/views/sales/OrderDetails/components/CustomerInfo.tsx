@@ -29,7 +29,7 @@ type CustomerInfoProps = {
 const CustomerInfo = ({ data }: CustomerInfoProps) => {
     return (
         <Card>
-            <h5 className="mb-4">Customer</h5>
+            <h5 className="mb-4">Үсчин</h5>
             <Link
                 className="group flex items-center justify-between"
                 to="/app/crm/customer-details?id=11"

@@ -33,12 +33,13 @@ const ActionColumn = ({ row }: { row: Customer }) => {
     }
 
     return (
-        <div
-            className={`${textTheme} cursor-pointer select-none font-semibold`}
-            onClick={onEdit}
-        >
-            Edit
-        </div>
+        // <div
+        //     className={`${textTheme} cursor-pointer select-none font-semibold`}
+        //     onClick={onEdit}
+        // >
+        //     Edit
+        // </div>
+        ""
     )
 }
 
@@ -47,7 +48,7 @@ const NameColumn = ({ row }: { row: Customer }) => {
 
     return (
         <div className="flex items-center">
-            <Avatar size={28} shape="circle" src={row.img} />
+            {/* <Avatar size={28} shape="circle" src={row.img} /> */}
             <Link
                 className={`hover:${textTheme} ml-2 rtl:mr-2 font-semibold`}
                 to={`/app/crm/customer-details?id=${row.id}`}
@@ -86,7 +87,7 @@ const Customers = () => {
     const columns: ColumnDef<Customer>[] = useMemo(
         () => [
             {
-                header: 'Name',
+                header: 'Нэр',
                 accessorKey: 'name',
                 cell: (props) => {
                     const row = props.row.original
@@ -94,41 +95,45 @@ const Customers = () => {
                 },
             },
             {
-                header: 'Email',
+                header: 'Имэйл',
                 accessorKey: 'email',
             },
             {
-                header: 'Status',
-                accessorKey: 'status',
-                cell: (props) => {
-                    const row = props.row.original
-                    return (
-                        <div className="flex items-center">
-                            <Badge className={statusColor[row.status]} />
-                            <span className="ml-2 rtl:mr-2 capitalize">
-                                {row.status}
-                            </span>
-                        </div>
-                    )
-                },
+                header: 'Утасны дугаар',
+                accessorKey: 'phoneNumb',
             },
-            {
-                header: 'Last online',
-                accessorKey: 'lastOnline',
-                cell: (props) => {
-                    const row = props.row.original
-                    return (
-                        <div className="flex items-center">
-                            {dayjs.unix(row.lastOnline).format('MM/DD/YYYY')}
-                        </div>
-                    )
-                },
-            },
-            {
-                header: '',
-                id: 'action',
-                cell: (props) => <ActionColumn row={props.row.original} />,
-            },
+            // {
+            //     header: 'Status',
+            //     accessorKey: 'status',
+            //     cell: (props) => {
+            //         const row = props.row.original
+            //         return (
+            //             <div className="flex items-center">
+            //                 <Badge className={statusColor[row.status]} />
+            //                 <span className="ml-2 rtl:mr-2 capitalize">
+            //                     {row.status}
+            //                 </span>
+            //             </div>
+            //         )
+            //     },
+            // },
+            // {
+            //     header: 'Last online',
+            //     accessorKey: 'lastOnline',
+            //     cell: (props) => {
+            //         const row = props.row.original
+            //         return (
+            //             <div className="flex items-center">
+            //                 {dayjs.unix(row.lastOnline).format('MM/DD/YYYY')}
+            //             </div>
+            //         )
+            //     },
+            // },
+            // {
+            //     header: '',
+            //     id: 'action',
+            //     cell: (props) => <ActionColumn row={props.row.original} />,
+            // },
         ],
         []
     )

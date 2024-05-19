@@ -1,18 +1,14 @@
-type ProjectDashboardHeaderProps = {
-    userName?: string
-    taskCount?: number
-}
+const ProjectDashboardHeader = () => {
 
-const ProjectDashboardHeader = ({
-    userName,
-    taskCount,
-}: ProjectDashboardHeaderProps) => {
     return (
         <div>
-            <h4 className="mb-1">Hello, {userName}!</h4>
-            <p>You have {taskCount} tasks on hand.</p>
+            <div className="lg:flex items-center justify-between mb-4 gap-3">
+                <div className="mb-4 lg:mb-0">
+                    <h3>Үсчингийн байршлууд</h3>
+                </div>
+            </div>
         </div>
-    )
-}
+    );
+};
 
-export default ProjectDashboardHeader
+export default ProjectDashboardHeader;

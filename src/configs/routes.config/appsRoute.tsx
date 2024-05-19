@@ -49,7 +49,7 @@ const appsRoute: Routes = [
         component: lazy(() => import('@/views/crm/Customers')),
         authority: [ADMIN, USER],
         meta: {
-            header: 'Customers',
+            header: 'Үсчин',
         },
     },
     {
@@ -58,7 +58,7 @@ const appsRoute: Routes = [
         component: lazy(() => import('@/views/crm/CustomerDetail')),
         authority: [ADMIN, USER],
         meta: {
-            header: 'Customer Details',
+            header: 'Үсчингийн дэлгэрэнгүй',
             headerContainer: true,
         },
     },
@@ -100,7 +100,7 @@ const appsRoute: Routes = [
         component: lazy(() => import('@/views/sales/ProductEdit')),
         authority: [ADMIN, USER],
         meta: {
-            header: 'Edit Product',
+            header: 'Үйлчилгээг засах',
         },
     },
     {

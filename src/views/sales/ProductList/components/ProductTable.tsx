@@ -149,7 +149,7 @@ const ProductTable = () => {
     const columns: ColumnDef<Product>[] = useMemo(
         () => [
             {
-                header: 'Name',
+                header: 'Нэр',
                 accessorKey: 'name',
                 cell: (props) => {
                     const row = props.row.original
@@ -157,47 +157,47 @@ const ProductTable = () => {
                 },
             },
             {
-                header: 'Category',
+                header: 'Төрөл',
                 accessorKey: 'category',
                 cell: (props) => {
                     const row = props.row.original
                     return <span className="capitalize">{row.category}</span>
                 },
             },
-            {
-                header: 'Quantity',
-                accessorKey: 'stock',
-                sortable: true,
-            },
-            {
-                header: 'Status',
-                accessorKey: 'status',
-                cell: (props) => {
-                    const { status } = props.row.original
-                    return (
-                        <div className="flex items-center gap-2">
-                            <Badge
-                                className={
-                                    inventoryStatusColor[status].dotClass
-                                }
-                            />
-                            <span
-                                className={`capitalize font-semibold ${inventoryStatusColor[status].textClass}`}
-                            >
-                                {inventoryStatusColor[status].label}
-                            </span>
-                        </div>
-                    )
-                },
-            },
-            {
-                header: 'Price',
-                accessorKey: 'price',
-                cell: (props) => {
-                    const { price } = props.row.original
-                    return <span>${price}</span>
-                },
-            },
+            // {
+            //     header: 'Quantity',
+            //     accessorKey: 'stock',
+            //     sortable: true,
+            // },
+            // {
+            //     header: 'Status',
+            //     accessorKey: 'status',
+            //     cell: (props) => {
+            //         const { status } = props.row.original
+            //         return (
+            //             <div className="flex items-center gap-2">
+            //                 <Badge
+            //                     className={
+            //                         inventoryStatusColor[status].dotClass
+            //                     }
+            //                 />
+            //                 <span
+            //                     className={`capitalize font-semibold ${inventoryStatusColor[status].textClass}`}
+            //                 >
+            //                     {inventoryStatusColor[status].label}
+            //                 </span>
+            //             </div>
+            //         )
+            //     },
+            // },
+            // {
+            //     header: 'Price',
+            //     accessorKey: 'price',
+            //     cell: (props) => {
+            //         const { price } = props.row.original
+            //         return <span>${price}</span>
+            //     },
+            // },
             {
                 header: '',
                 id: 'action',

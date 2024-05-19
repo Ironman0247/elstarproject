@@ -17,13 +17,13 @@ const Cover = ({ children, content, ...rest }: CoverProps) => {
                     backgroundImage: `url('/img/others/auth-cover-bg.jpg')`,
                 }}
             >
-                <Logo mode="dark" />
+                {/* <Logo mode="dark" /> */}
                 <div>
                     <h3 className="text-white mb-4">
-                        Jump start your project with Elstar
+                        Jump start your project with enkhjin
                     </h3>
                     <p className="text-lg text-white opacity-80 max-w-[700px]">
-                        Elstar comes with a complete set of UI components
+                        enkhjin comes with a complete set of UI components
                         crafted with Tailwind CSS, it fulfilled most of the use
                         case to create modern and beautiful UI and application
                     </p>

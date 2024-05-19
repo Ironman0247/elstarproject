@@ -65,25 +65,25 @@ const InvoiceContent = () => {
                 <>
                     <div className="flex flex-col md:flex-row justify-between gap-4 mb-10">
                         <div>
-                            <Logo className="mb-3" mode={mode} />
+                            {/* <Logo className="mb-3" mode={mode} /> */}
                             <address className="not-italic">
                                 <div>
-                                    <h5>Elstar, Inc.</h5>
+                                    <h5>Enkhjin тань дээр үүссэн нэхэмжлэл</h5>
                                     <br />
-                                    <span>9498 Harvard Street</span>
+                                    {/* <span>9498 Harvard Street</span> */}
                                     <br />
-                                    <span>Fairfield, Chicago Town 06824</span>
+                                    {/* <span>Fairfield, Chicago Town 06824</span> */}
                                     <br />
-                                    <abbr title="Phone">Phone:</abbr>
-                                    <span>(123) 456-7890</span>
+                                    {/* <abbr title="Phone">Phone:</abbr> */}
+                                    {/* <span>(123) 456-7890</span> */}
                                 </div>
                             </address>
                         </div>
                         <div className="my-4">
                             <div className="mb-2">
-                                <h4>Invoice #{data?.id}</h4>
+                                <h4>Нэхэмжлэл #{data?.id}</h4>
                                 <span>
-                                    Date:{' '}
+                                    Огноо:{' '}
                                     {dayjs
                                         .unix(data.dateTime as number)
                                         .format('dddd, DD MMMM, YYYY')}

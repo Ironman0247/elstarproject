@@ -16,16 +16,16 @@ const ProductTableTools = () => {
                 target="_blank"
             >
                 <Button block size="sm" icon={<HiDownload />}>
-                    Export
+                    Хадгалах
                 </Button>
             </Link>
             <Link
                 className="block lg:inline-block md:mb-0 mb-4"
                 to="/app/sales/product-new"
             >
-                <Button block variant="solid" size="sm" icon={<HiPlusCircle />}>
-                    Add Product
-                </Button>
+                {/* <Button block variant="solid" size="sm" icon={<HiPlusCircle />}>
+                    Үйлчилгээ нэмэх
+                </Button> */}
             </Link>
         </div>
     )

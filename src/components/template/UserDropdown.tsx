@@ -26,11 +26,11 @@ const dropdownItemList: DropdownList[] = [
         path: '/app/account/settings/profile',
         icon: <HiOutlineCog />,
     },
-    {
-        label: 'Activity Log',
-        path: '/app/account/activity-log',
-        icon: <FiActivity />,
-    },
+    // {
+    //     label: 'Activity Log',
+    //     path: '/app/account/activity-log',
+    //     icon: <FiActivity />,
+    // },
 ]
 
 const _UserDropdown = ({ className }: CommonProps) => {
@@ -42,7 +42,7 @@ const _UserDropdown = ({ className }: CommonProps) => {
 
     const UserAvatar = (
         <div className={classNames(className, 'flex items-center gap-2')}>
-            <Avatar size={32} shape="circle" src={avatar} />
+            {/* <Avatar size={32} shape="circle" src={avatar} /> */}
             <div className="hidden md:block">
                 <div className="text-xs capitalize">
                     {authority?.[0] || 'guest'}
@@ -61,7 +61,7 @@ const _UserDropdown = ({ className }: CommonProps) => {
             >
                 <Dropdown.Item variant="header">
                     <div className="py-2 px-3 flex items-center gap-2">
-                        <Avatar shape="circle" src={avatar} />
+                        {/* <Avatar shape="circle" src={avatar} /> */}
                         <div>
                             <div className="font-bold text-gray-900 dark:text-gray-100">
                                 {userName}

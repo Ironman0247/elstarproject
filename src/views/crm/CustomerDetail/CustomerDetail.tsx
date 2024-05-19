@@ -43,17 +43,15 @@ const CustomerDetail = () => {
         <Container className="h-full">
             <Loading loading={loading}>
                 {!isEmpty(data) && (
-                    <div className="flex flex-col xl:flex-row gap-4">
-                        <div>
-                            <CustomerProfile data={data} />
-                        </div>
-                        <div className="w-full">
+                    <div className="flex flex-col xl:flex-row">
+                        <CustomerProfile data={data} />
+                        {/* <div className="w-full">
                             <AdaptableCard>
                                 <CurrentSubscription />
                                 <PaymentHistory />
                                 <PaymentMethods />
                             </AdaptableCard>
-                        </div>
+                        </div> */}
                     </div>
                 )}
             </Loading>

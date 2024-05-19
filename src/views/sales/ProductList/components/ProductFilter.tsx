@@ -248,7 +248,7 @@ const ProductFilter = () => {
                 icon={<HiOutlineFilter />}
                 onClick={() => openDrawer()}
             >
-                Filter
+                Шүүх
             </Button>
             <Drawer
                 title="Filter"

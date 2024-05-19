@@ -180,8 +180,8 @@ const ProductImages = (props: ProductImagesProps) => {
 
     return (
         <AdaptableCard className="mb-4">
-            <h5>Product Image</h5>
-            <p className="mb-6">Add or change image for the product</p>
+            <h5>Үйлчилгээний зураг</h5>
+            <p className="mb-6">Үйлчилгээний талаарх зураг нэмэх эсвэл засах</p>
             <FormItem>
                 <Field name="imgList">
                     {({ field, form }: FieldProps) => {

@@ -11,7 +11,7 @@ type PaymentSummaryProps = {
     data?: {
         subTotal: number
         tax: number
-        deliveryFees: number
+        // deliveryFees: number
         total: number
     }
 }
@@ -30,7 +30,7 @@ const PaymentInfo = ({ label, value, isLast }: PaymentInfoProps) => {
                     value={(Math.round((value as number) * 100) / 100).toFixed(
                         2
                     )}
-                    prefix={'$'}
+                    prefix={'₮'}
                     thousandSeparator={true}
                 />
             </span>
@@ -41,13 +41,13 @@ const PaymentInfo = ({ label, value, isLast }: PaymentInfoProps) => {
 const PaymentSummary = ({ data }: PaymentSummaryProps) => {
     return (
         <Card className="mb-4">
-            <h5 className="mb-4">Payment Summary</h5>
+            <h5 className="mb-4">Төлбөрийн хураангуй</h5>
             <ul>
-                <PaymentInfo label="Subtotal" value={data?.subTotal} />
-                <PaymentInfo label="Delivery fee" value={data?.deliveryFees} />
-                <PaymentInfo label="Tax(6%)" value={data?.tax} />
+                <PaymentInfo label="Нийлбэр дүн" value={data?.subTotal} />
+                {/* <PaymentInfo label="Delivery fee" value={data?.deliveryFees} /> */}
+                <PaymentInfo label="Шимтгэл(10%)" value={data?.tax} />
                 <hr className="mb-3" />
-                <PaymentInfo isLast label="Total" value={data?.total} />
+                <PaymentInfo isLast label="Нийт" value={data?.total} />
             </ul>
         </Card>
     )

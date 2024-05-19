@@ -43,11 +43,11 @@ const StatisticCard = (props: StatisticCardProps) => {
             >
                 <div className="flex justify-between items-center">
                     <div className="flex items-center gap-4">
-                        <Avatar
+                        {/* <Avatar
                             className={avatarClass}
                             size={avatarSize}
                             icon={icon}
-                        />
+                        /> */}
                         <div>
                             <span>{label}</span>
                             <h3>
@@ -82,32 +82,33 @@ const CustomerStatistic = () => {
     }, [])
 
     return (
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 mb-6">
-            <StatisticCard
-                icon={<HiOutlineUserGroup />}
-                avatarClass="!bg-indigo-600"
-                label="Total Customers"
-                value={statisticData?.totalCustomers?.value}
-                growthRate={statisticData?.totalCustomers?.growShrink}
-                loading={loading}
-            />
-            <StatisticCard
-                icon={<HiOutlineUsers />}
-                avatarClass="!bg-blue-500"
-                label="Active Customers"
-                value={statisticData?.activeCustomers?.value}
-                growthRate={statisticData?.activeCustomers?.growShrink}
-                loading={loading}
-            />
-            <StatisticCard
-                icon={<HiOutlineUserAdd />}
-                avatarClass="!bg-emerald-500"
-                label="New Customers"
-                value={statisticData?.newCustomers?.value}
-                growthRate={statisticData?.newCustomers?.growShrink}
-                loading={loading}
-            />
-        </div>
+        // <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 mb-6">
+        //     <StatisticCard
+        //         icon={<HiOutlineUserGroup />}
+        //         avatarClass="!bg-indigo-600"
+        //         label="Total Customers"
+        //         value={statisticData?.totalCustomers?.value}
+        //         growthRate={statisticData?.totalCustomers?.growShrink}
+        //         loading={loading}
+        //     />
+        //     <StatisticCard
+        //         icon={<HiOutlineUsers />}
+        //         avatarClass="!bg-blue-500"
+        //         label="Active Customers"
+        //         value={statisticData?.activeCustomers?.value}
+        //         growthRate={statisticData?.activeCustomers?.growShrink}
+        //         loading={loading}
+        //     />
+        //     <StatisticCard
+        //         icon={<HiOutlineUserAdd />}
+        //         avatarClass="!bg-emerald-500"
+        //         label="New Customers"
+        //         value={statisticData?.newCustomers?.value}
+        //         growthRate={statisticData?.newCustomers?.growShrink}
+        //         loading={loading}
+        //     />
+        // </div>
+        ""
     )
 }
 

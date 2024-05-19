@@ -111,29 +111,29 @@ const CustomerProfile = ({ data = {} }: CustomerProfileProps) => {
         <Card>
             <div className="flex flex-col xl:justify-between h-full 2xl:min-w-[360px] mx-auto">
                 <div className="flex xl:flex-col items-center gap-4">
-                    <Avatar size={90} shape="circle" src={data.img} />
+                    {/* <Avatar size={90} shape="circle" src={data.img} /> */}
                     <h4 className="font-bold">{data.name}</h4>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-1 gap-y-7 gap-x-4 mt-8">
-                    <CustomerInfoField title="Email" value={data.email} />
+                    <CustomerInfoField title="Имэйл" value={data.email} />
                     <CustomerInfoField
-                        title="Phone"
+                        title="Утасны дугаар"
                         value={data.personalInfo?.phoneNumber}
                     />
                     <CustomerInfoField
-                        title="Location"
+                        title="Байршил"
                         value={data.personalInfo?.location}
                     />
                     <CustomerInfoField
-                        title="Date of birth"
+                        title="Төрсөн он сар өдөр"  
                         value={data.personalInfo?.birthday}
                     />
                     <CustomerInfoField
-                        title="Title"
+                        title="Мэргэжил"
                         value={data.personalInfo?.title}
                     />
                     <div className="mb-7">
-                        <span>Social</span>
+                        <span>Цахим хуудас</span>
                         <div className="flex mt-4">
                             <Button
                                 className="mr-2"
@@ -168,9 +168,9 @@ const CustomerProfile = ({ data = {} }: CustomerProfileProps) => {
                         </div>
                     </div>
                 </div>
-                <div className="mt-4 flex flex-col xl:flex-row gap-2">
+                {/* <div className="mt-4 flex flex-col xl:flex-row gap-2">
                     <CustomerProfileAction id={data.id} />
-                </div>
+                </div> */}
             </div>
         </Card>
     )

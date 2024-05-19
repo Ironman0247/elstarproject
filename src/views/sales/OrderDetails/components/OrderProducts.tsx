@@ -59,7 +59,7 @@ const PriceAmount = ({ amount }: { amount: number }) => {
         <NumericFormat
             displayType="text"
             value={(Math.round(amount * 100) / 100).toFixed(2)}
-            prefix={'$'}
+            prefix={'₮'}
             thousandSeparator={true}
         />
     )
@@ -67,24 +67,24 @@ const PriceAmount = ({ amount }: { amount: number }) => {
 
 const columns = [
     columnHelper.accessor('name', {
-        header: 'Product',
+        header: 'Үйлчилгээ',
         cell: (props) => {
             const row = props.row.original
             return <ProductColumn row={row} />
         },
     }),
     columnHelper.accessor('price', {
-        header: 'Price',
+        header: 'Үнийн дүн',
         cell: (props) => {
             const row = props.row.original
             return <PriceAmount amount={row.price} />
         },
     }),
-    columnHelper.accessor('quantity', {
-        header: 'Quantity',
-    }),
+    // columnHelper.accessor('quantity', {
+    //     header: 'Quantity',
+    // }),
     columnHelper.accessor('total', {
-        header: 'Total',
+        header: 'Нийт',
         cell: (props) => {
             const row = props.row.original
             return <PriceAmount amount={row.price} />
